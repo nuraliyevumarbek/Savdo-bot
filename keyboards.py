@@ -1,13 +1,16 @@
 from aiogram.types import (
-    ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
+    ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 )
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
+from config import WEBAPP_URL
 
 
 # ---------------- Foydalanuvchi asosiy menyusi ----------------
 
 def main_menu_kb():
     kb = ReplyKeyboardBuilder()
+    if WEBAPP_URL:
+        kb.button(text="📱 Mini App ochish", web_app=WebAppInfo(url=WEBAPP_URL))
     kb.button(text="📦 Kirim qilish")
     kb.button(text="📤 Chiqim qilish")
     kb.button(text="🗂 Ombor")
@@ -17,7 +20,7 @@ def main_menu_kb():
     kb.button(text="💳 Obuna")
     kb.button(text="🎁 Referal")
     kb.button(text="🆘 Yordam")
-    kb.adjust(2, 2, 2, 2, 1)
+    kb.adjust(1, 2, 2, 2, 2, 1)
     return kb.as_markup(resize_keyboard=True)
 
 
@@ -115,3 +118,4 @@ def broadcast_target_kb():
     kb.button(text="✅ Faqat faol obunalilarga", callback_data="bcast_active")
     kb.adjust(1)
     return kb.as_markup()
+
