@@ -22,6 +22,9 @@ REFERRAL_BONUS_DAYS = 5
 PAYMENT_CARD_NUMBER = os.getenv("PAYMENT_CARD_NUMBER", "8600 XXXX XXXX XXXX")
 PAYMENT_CARD_OWNER = os.getenv("PAYMENT_CARD_OWNER", "F.I.Sh.")
 
+# Mini App manzili (Render bergan URL, masalan https://savdo-bot-aejo.onrender.com)
+WEBAPP_URL = os.getenv("WEBAPP_URL", "")
+
 # QR/barcode fayllar saqlanadigan papka
 MEDIA_DIR = "media"
 QR_DIR = os.path.join(MEDIA_DIR, "qr_codes")
